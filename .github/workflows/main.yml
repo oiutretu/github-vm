@@ -14,6 +14,9 @@ jobs:
       run: |
          sudo pfctl -f /etc/pf.conf
          sudo pfctl -e
+         ifconfig -a
+         ping -c 4 8.8.8.8
+         sudo ifconfig en0 down
          sudo ifconfig en0 up
          sudo ipconfig set en0 DHCP
          ifconfig en0
