@@ -15,9 +15,8 @@ jobs:
     - name: Start Tunnel
       run: |
           ipconfig getifaddr en0
-          curl -O https://downloads.realvnc.com/download/file/vnc.files/VNC-Server-7.13.1-MacOSX-universal.pkg?lai_vid=NX12E0WwMcv8v&lai_sr=15-19&lai_sl=l&lai_p=1
-          cloudflared tunnel --url localhost:5900
-          sudo apt install xfce4 xfce4-goodies novnc python3-websockify python3-numpy tightvncserver htop nano neofetch -y
+          brew install tigervnc
+          ls /opt/homebrew/Cellar/tiger-vnc/1.15.0/bin
           
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
