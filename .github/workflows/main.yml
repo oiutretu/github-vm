@@ -20,7 +20,7 @@ jobs:
     - name: Start LocalTunnel
       run: |
           lt --port 5900 --subdomain
-          curl -H "bypass-tunnel-reminder: true" https://phuoclam.loca.lt
+          curl https://loca.lt/mytunnelpassword
           
 
     - name: Log In Details To VNC Server
