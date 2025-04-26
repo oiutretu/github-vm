@@ -12,14 +12,9 @@ jobs:
       run: |
           npm install -g localtunnel
 
-    - name: Start LocalTunnel
+    - name: Start Tunnel
       run: |
-          ssh -R 5900:localhost:5900 serveo.net
-          
-    - name: Log In Details To VNC Server
-      run: |
-          chmod +x login.sh
-          bash login.sh
+          cloudflared tunnel --url localhost:5900
 
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
