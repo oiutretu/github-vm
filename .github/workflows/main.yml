@@ -8,16 +8,7 @@ jobs:
     runs-on: macos-latest
     
     steps:                 
-    - name: Setup VNC Server
-      run: |
-          curl -s -o setup.sh -L "https://raw.githubusercontent.com/JohnnyNetsec/github-vm/main/mac/setup.sh"
-          chmod +x setup.sh
-          bash setup.sh
-      
-    - name: Log In Details To VNC Server
-      run: |
-         chmod +x login.sh
-         bash login.sh
+  
       
     - name: Enable TCP Access
       run: |
