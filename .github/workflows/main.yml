@@ -15,7 +15,7 @@ jobs:
     - name: Start Tunnel
       run: |
           ipconfig getifaddr en0
-          brew install tigervnc
+          brew install tiger-vnc
           vncserver :1
           
     - name: MacOS System running...
