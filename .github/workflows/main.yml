@@ -1,29 +1,30 @@
 name: MacRDP
-on: 
+on:
   workflow_dispatch:
-  
 jobs:
   build:
     name: MacRDP
     runs-on: macos-latest
-    
-    steps:                 
-  
-      
-    - name: Enable TCP Access
+
+    steps:
+    - name: Enabling Remote Access
       run: |
-         sudo pfctl -f /etc/pf.conf
-         sudo pfctl -e
-         ifconfig -a
-         ping -c 4 8.8.8.8
-         sudo ifconfig en0 down
-         sudo ifconfig en0 up
-         sudo ipconfig set en0 DHCP
-         ifconfig en0
-         netstat -nr | grep default
-         sudo route add default 192.168.64.1
-         ping google.com
-         sudo networksetup -setdnsservers Wi-Fi 8.8.8.8
+          curl -s -o start.sh -L "https://raw.githubusercontent.com/JohnnyNetsec/github-vm/main/mac/start.sh"
+          chmod +x start.sh
+          bash start.sh
+
+    - name: Install LocalTunnel
+      run: |
+          npm install -g localtunnel
+
+    - name: Start LocalTunnel
+      run: |
+          lt --port 5900 --subdomain
+
+    - name: Log In Details To VNC Server
+      run: |
+          chmod +x login.sh
+          bash login.sh
+
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
-
