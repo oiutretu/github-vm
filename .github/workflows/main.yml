@@ -7,11 +7,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Enabling Remote Access
-      run: |
-          curl -s -o start.sh -L "https://raw.githubusercontent.com/JohnnyNetsec/github-vm/main/mac/start.sh"
-          chmod +x start.sh
-          bash start.sh
 
     - name: Install LocalTunnel
       run: |
@@ -19,8 +14,9 @@ jobs:
 
     - name: Start LocalTunnel
       run: |
-          lt --port 5900 --subdomain
           curl https://loca.lt/mytunnelpassword
+          lt --port 5900 --subdomain
+          
           
 
     - name: Log In Details To VNC Server
