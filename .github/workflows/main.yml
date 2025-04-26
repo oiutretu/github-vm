@@ -16,7 +16,14 @@ jobs:
       run: |
           ipconfig getifaddr en0
           brew install tiger-vnc
-          ls /opt/homebrew/Cellar/tiger-vnc/1.15.0/bin
-          
+
+    - name: Enable Screen Sharing
+      run: |
+          sudo defaults write /Library/Preferences/com.apple.RemoteManagement VNCEnable -bool true
+          sudo defaults write /Library/Preferences/com.apple.RemoteManagement VNCPassword -string "<YOUR_PASSWORD>"
+          sudo launchctl load /System/Library/LaunchDaemons/com.apple.ScreenSharing.plist
+    - name: Verify VNC is Running
+      run: sudo lsof -i -P -n | grep LISTEN | grep 5900
+
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
