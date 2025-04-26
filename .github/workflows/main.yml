@@ -14,7 +14,9 @@ jobs:
 
     - name: Start Tunnel
       run: |
-          sudo systemctl start vncserver
+          sudo service vncserver start
+          vncserver :1
+          ps -p 1 -o comm=
           sudo lsof -i -P -n | grep LISTEN
           netstat -tulnp | grep 5900
           sudo ufw allow 5900
