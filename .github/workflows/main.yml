@@ -16,8 +16,7 @@ jobs:
       run: |
           ipconfig getifaddr en0
           brew install tiger-vnc
-          ls /opt/homebrew/bin | grep vnc
-          which tigervncserver
+          /opt/homebrew/Cellar/tiger-vnc/1.15.0/bin/vncserver :1
           
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
