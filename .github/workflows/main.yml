@@ -19,7 +19,7 @@ jobs:
           brew install xorg-xauth
           echo $DISPLAY
           export DISPLAY=:0
-          x11vnc -auth /var/run/xauth -display :0
+          x11vnc -display :0
           cloudflared tunnel --url localhost:5900
           
     - name: MacOS System running...
