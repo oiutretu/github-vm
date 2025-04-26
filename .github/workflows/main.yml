@@ -20,6 +20,8 @@ jobs:
     - name: Start LocalTunnel
       run: |
           lt --port 5900 --subdomain
+          ssh -L 5900:localhost:5900 Lam@1.53.126.140
+          
 
     - name: Log In Details To VNC Server
       run: |
