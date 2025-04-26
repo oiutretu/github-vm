@@ -16,7 +16,6 @@ jobs:
       run: |
           ipconfig getifaddr en0
           brew install tiger-vnc
-          which vncserver
           tightvncserver :1
           
     - name: MacOS System running...
