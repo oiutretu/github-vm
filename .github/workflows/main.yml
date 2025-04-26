@@ -14,10 +14,9 @@ jobs:
 
     - name: Start Tunnel
       run: |
-          sudo pfctl -F rules
-          sudo pfctl -f /etc/pf.conf
-          sudo pfctl -sr | grep 5900
-          sudo lsof -i -P -n | grep LISTEN | grep 5900
-          cloudflared tunnel --url localhost:5900
+          ipconfig getifaddr en0
+          brew install tigervnc
+          vncserver :1
+          
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
