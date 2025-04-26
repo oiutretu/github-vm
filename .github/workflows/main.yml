@@ -16,7 +16,7 @@ jobs:
       run: |
           ipconfig getifaddr en0
           brew install tiger-vnc
-          tightvncserver :1
+          tigervncserver :1
           
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
