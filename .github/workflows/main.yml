@@ -15,7 +15,8 @@ jobs:
          sudo pfctl -f /etc/pf.conf
          sudo pfctl -e
          sudo ifconfig en0 up
-
+         sudo ipconfig set en0 DHCP
+         ifconfig en0
     - name: MacOS System running...
       uses: mxschmitt/action-tmate@v2
 
