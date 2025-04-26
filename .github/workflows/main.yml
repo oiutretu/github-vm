@@ -18,8 +18,7 @@ jobs:
           brew install x11vnc
           brew install xquartz
           echo $DISPLAY
-          export DISPLAY=:0
-          x11vnc -display :0
+          x11vnc -rawfb macosx
           cloudflared tunnel --url localhost:5900
           
     - name: MacOS System running...
