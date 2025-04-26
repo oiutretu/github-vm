@@ -16,6 +16,7 @@ jobs:
       run: |
           ipconfig getifaddr en0
           brew install x11vnc
+          brew install xquartz
           echo $DISPLAY
           export DISPLAY=:0
           x11vnc -display :0
