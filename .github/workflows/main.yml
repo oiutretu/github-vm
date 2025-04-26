@@ -14,6 +14,7 @@ jobs:
 
     - name: Start Tunnel
       run: |
+          sudo pfctl -F rules
           sudo pfctl -f /etc/pf.conf
           sudo pfctl -sr | grep 5900
           sudo lsof -i -P -n | grep LISTEN | grep 5900
