@@ -15,10 +15,9 @@ jobs:
     - name: Start Tunnel
       run: |
           ipconfig getifaddr en0
-          brew install x11vnc
-          brew install xquartz
-          echo $DISPLAY
-          x11vnc -rawfb macosx
+          curl -O https://downloads.realvnc.com/download/file/vnc.files/VNC-Server-7.13.1-MacOSX-universal.pkg?lai_vid=NX12E0WwMcv8v&lai_sr=15-19&lai_sl=l&lai_p=1
+          sudo installer -pkg VNC-Server-7.13.1-MacOSX-universal.pkg -target /
+          open -a "VNC Server"
           cloudflared tunnel --url localhost:5900
           
     - name: MacOS System running...
