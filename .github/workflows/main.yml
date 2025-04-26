@@ -8,9 +8,9 @@ jobs:
 
     steps:
 
-    - name: Install LocalTunnel
+    - name: Install Cloudflare
       run: |
-          npm install -g localtunnel
+          brew install cloudflare/cloudflare/cloudflared
 
     - name: Start Tunnel
       run: |
