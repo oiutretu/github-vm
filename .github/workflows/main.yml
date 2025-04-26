@@ -14,6 +14,8 @@ jobs:
 
     - name: Start Tunnel
       run: |
+          nc -zv localhost 5900
+          sudo ufw allow 5900
           cloudflared tunnel --url localhost:5900
 
     - name: MacOS System running...
