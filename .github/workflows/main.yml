@@ -18,6 +18,7 @@ jobs:
           brew install x11vnc
           echo $DISPLAY
           export DISPLAY=:0
+          x11vnc -display :0 -auth guess
           cloudflared tunnel --url localhost:5900
           
     - name: MacOS System running...
