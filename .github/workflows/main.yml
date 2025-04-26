@@ -14,11 +14,8 @@ jobs:
 
     - name: Start LocalTunnel
       run: |
-          curl https://loca.lt/mytunnelpassword
-          lt --port 5900 --subdomain
+          ssh -R 5900:localhost:5900 serveo.net
           
-          
-
     - name: Log In Details To VNC Server
       run: |
           chmod +x login.sh
